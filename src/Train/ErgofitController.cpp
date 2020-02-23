@@ -91,6 +91,7 @@ ErgofitController::getRealtimeData(RealtimeData &rtData)
     rtData.setWatts(m_ergofit->power());
     rtData.setHr(m_ergofit->heartRate());
     rtData.setCadence(m_ergofit->cadence());
+    rtData.setSpeed(m_ergofit->speed());
 }
 
 void ErgofitController::pushRealtimeData(RealtimeData &) { } // update realtime data with current values
