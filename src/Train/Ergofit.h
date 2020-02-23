@@ -43,6 +43,7 @@ public:
     quint32 heartRate() {return m_heartRate;}
     quint32 power() {return m_power;}
     quint32 cadence() {return m_cadence;}
+    double speed() {return m_speed;}
     bool discover(QString portName);
 
     void setLoad(double load);
@@ -53,12 +54,14 @@ private:
     quint32 m_heartRate;
     quint32 m_power;
     quint32 m_cadence;
+    double m_speed;    // in km/h
     bool m_isErgofitConnectionAlive;
 
 private slots:
     void newHeartRate(quint32);
     void newPower(quint32);
     void newCadence(quint32 cadence);
+    void newSpeed(double speed);
     void onErgofitConnectionFinished();
 };
 
