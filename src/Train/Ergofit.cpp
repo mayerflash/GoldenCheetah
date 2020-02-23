@@ -31,6 +31,7 @@ Ergofit::Ergofit(QObject *parent,  QString devname) : QObject(parent),
     connect(&m_ergofitConnection, SIGNAL(power(quint32)), this, SLOT(newPower(quint32)), Qt::QueuedConnection);
     connect(&m_ergofitConnection, SIGNAL(cadence(quint32)), this, SLOT(newCadence(quint32)), Qt::QueuedConnection);
     connect(&m_ergofitConnection, SIGNAL(pulse(quint32)), this, SLOT(newHeartRate(quint32)), Qt::QueuedConnection);
+    connect(&m_ergofitConnection, SIGNAL(speed(double)), this, SLOT(newSpeed(double)), Qt::QueuedConnection);
     connect(&m_ergofitConnection, SIGNAL(finished()), this, SLOT(onErgofitConnectionFinished()), Qt::QueuedConnection);
 }
 
@@ -67,6 +68,11 @@ void Ergofit::newHeartRate(quint32 heartRate)
 void Ergofit::newPower(quint32 power)
 {
     m_power = power;
+}
+
+void Ergofit::newSpeed(double speed)
+{
+    m_speed = speed;
 }
 
 /**
