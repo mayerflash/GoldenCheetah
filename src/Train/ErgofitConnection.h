@@ -55,6 +55,7 @@ signals:
     void pulse(quint32);
     void cadence(quint32);
     void power(quint32);
+    void speed(double);
 };
 
 #endif // _GC_ErgofitConnection_h
