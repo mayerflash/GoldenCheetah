@@ -48,7 +48,8 @@ public:
     void pushRealtimeData(RealtimeData &rtData);
 
     void setLoad(double);
-    void setMode(int) { return ; }
+    void setGradient(double);
+    void setMode(int);
 };
 
 #endif // _GC_ErgofitController_h
