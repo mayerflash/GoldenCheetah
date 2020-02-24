@@ -100,3 +100,19 @@ void ErgofitController::setLoad(double load)
 {
     m_ergofit->setLoad(load);
 }
+
+void ErgofitController::setGradient(double grade)
+{
+    // m_ergofit->setGradient(grade);
+qDebug() << "setgradient: " << grade;
+}
+
+void ErgofitController::setMode(int mode)
+{
+    //if (mode == RT_MODE_ERGO) mode = FT_ERGOMODE;
+    //else if (mode == RT_MODE_SPIN) mode = FT_SSMODE;
+    //else mode = FT_IDLE;
+qDebug() << "setmode: " << mode;
+
+    //m_ergofit->setMode(mode);
+}

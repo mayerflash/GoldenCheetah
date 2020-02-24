@@ -138,12 +138,15 @@ void ErgofitConnection::requestAll()
         QByteArray cadence_data = m_serial->readAll();
         while (m_serial->waitForReadyRead(80)) cadence_data += m_serial->readAll();
         if (QString(cadence_data).startsWith("\x01\x44\x02")) {
+qDebug() << "cadence_data: " << hex << cadence_data;
             QString cadence_string = cadence_data.mid(3, 3);
             quint32 newCadence = cadence_string.toUInt();
             emit cadence(newCadence);
             if (QString(cadence_string).mid(6,3) == "\x1f\x4f\x76" ) {    // check if speed value is reported
                 QString speed_string = cadence_data.mid(9, 3);
+qDebug() << "speed_string: " << speed_string;
                 quint32 newSpeed = speed_string.toUInt();
+qDebug() << "newSpeed: " << newSpeed;
                 emit speed(newSpeed);
             } else {                                                     // report speed=0 when no speed deliverd by trainer
                 quint32 newSpeed = 0;
