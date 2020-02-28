@@ -47,6 +47,8 @@ public:
     bool discover(QString portName);
 
     void setLoad(double load);
+    void setGradient(double grade);
+    void setMode(int mode);
     bool isConnected();
 
 private:

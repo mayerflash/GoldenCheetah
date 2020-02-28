@@ -39,6 +39,8 @@ public slots:
     void requestAll();
     void initializePcConnection();
     void setLoad(unsigned int load);
+    void setGradient(unsigned int grade);
+    void setMode(unsigned int mode);
 
 private:
     QString m_serialPortName;
@@ -50,6 +52,9 @@ private:
     unsigned int m_load;
     unsigned int m_loadToWrite;
     bool m_shouldWriteLoad;
+    unsigned int m_gradeToWrite;
+    bool m_shouldWriteGrade;
+    unsigned int m_ergofitMode;
 
 signals:
     void pulse(quint32);

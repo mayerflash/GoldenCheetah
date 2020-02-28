@@ -20,6 +20,7 @@
 
 
 #include "Ergofit.h"
+//#include "ErgofitConnection.h"                     // -> kann gelöscht werden !!!!!!!!!!!!!!!!!!!!!!!
 
 Ergofit::Ergofit(QObject *parent,  QString devname) : QObject(parent),
     m_heartRate(0),
@@ -122,6 +123,16 @@ bool Ergofit::discover(QString portName)
 void Ergofit::setLoad(double load)
 {
     m_ergofitConnection.setLoad((unsigned int)load);
+}
+
+void Ergofit::setGradient(double grade)
+{
+    m_ergofitConnection.setGradient((unsigned int)grade);
+}
+
+void Ergofit::setMode(int mode)
+{
+    m_ergofitConnection.setMode((unsigned int)mode);
 }
 
 bool Ergofit::isConnected()
